@@ -1,15 +1,12 @@
-# gasutil/urls.py
-
 from django.contrib import admin
 from django.urls import path, include
-from django.http import HttpResponse
+from django.shortcuts import render
 
-# A simple view to show something at the root URL
 def home_view(request):
-    return HttpResponse("Welcome to the Gas Utility Service!")
+    return render(request, 'home.html')
 
 urlpatterns = [
-    path('', home_view, name='home'),           # <-- Add this line for the root path
+    path('', home_view, name='home'),
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('requests/', include('service_requests.urls')),

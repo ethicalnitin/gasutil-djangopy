@@ -2,21 +2,97 @@
 <html>
 <head>
     <title>Your Service Requests</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* Base styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+        li:last-child {
+            border-bottom: none;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        small {
+            color: #555;
+        }
+        .no-requests {
+            text-align: center;
+            color: #555;
+        }
+        .submit-btn {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            padding: 12px;
+            background-color: #007BFF;
+            color: #fff;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            .container {
+                margin: 20px;
+                padding: 20px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Your Service Requests</h1>
-    <ul>
-        {% for req in requests %}
-            <li>
-                <a href="{% url 'service_request_detail' req.pk %}">
-                    {{ req.request_type }} - {{ req.status }}
-                </a>
-                (Submitted on: {{ req.created_at }})
-            </li>
-        {% empty %}
-            <li>No requests found.</li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'service_request_create' %}">Submit a New Request</a>
+    <div class="container">
+        <h1>Your Service Requests</h1>
+        <ul>
+            {% for req in requests %}
+                <li>
+                    <a href="{% url 'service_request_detail' req.pk %}">
+                        {{ req.request_type }} - {{ req.status }}
+                    </a>
+                    <br>
+                    <small>Submitted on: {{ req.created_at }}</small>
+                </li>
+            {% empty %}
+                <li class="no-requests">No requests found.</li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'service_request_create' %}" class="submit-btn">Submit a New Request</a>
+    </div>
 </body>
 </html>

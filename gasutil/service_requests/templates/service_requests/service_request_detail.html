@@ -2,17 +2,65 @@
 <html>
 <head>
     <title>Request Detail</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* Base styling */
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #555;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            .container {
+                margin: 20px;
+                padding: 20px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Request Detail</h1>
-    <p>Type: {{ object.request_type }}</p>
-    <p>Status: {{ object.status }}</p>
-    <p>Details: {{ object.details }}</p>
-    <p>Submitted: {{ object.created_at }}</p>
-    <p>Last Updated: {{ object.updated_at }}</p>
-    {% if object.attachment %}
-        <p>Attachment: <a href="{{ object.attachment.url }}">Download</a></p>
-    {% endif %}
-    <a href="{% url 'service_request_list' %}">Back to Requests</a>
+    <div class="container">
+        <h1>Request Detail</h1>
+        <p>Type: {{ object.request_type }}</p>
+        <p>Status: {{ object.status }}</p>
+        <p>Details: {{ object.details }}</p>
+        <p>Submitted: {{ object.created_at }}</p>
+        <p>Last Updated: {{ object.updated_at }}</p>
+        {% if object.attachment %}
+            <p>Attachment: <a href="{{ object.attachment.url }}">Download</a></p>
+        {% endif %}
+        <a href="{% url 'service_request_list' %}">Back to Requests</a>
+    </div>
 </body>
 </html>

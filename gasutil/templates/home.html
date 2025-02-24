@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gas Agency - Online Cylinder Booking</title>
+  <style>
+    /* Global Styling */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+    }
+    a {
+      text-decoration: none;
+      color: #007BFF;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    /* Header Section */
+    header {
+      background: linear-gradient(135deg, #ff7e5f, #feb47b);
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    header p {
+      font-size: 1.2em;
+      margin: 10px 0 0;
+    }
+    /* Navigation Bar */
+    nav {
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 10px 0;
+    }
+    nav .nav-container {
+      max-width: 1000px;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    nav a {
+      padding: 10px 15px;
+      border: 1px solid #007BFF;
+      border-radius: 4px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    nav a:hover {
+      background-color: #007BFF;
+      color: #fff;
+    }
+    /* Hero Section */
+    .hero {
+      background: url('https://via.placeholder.com/1000x400') center/cover no-repeat;
+      height: 400px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+    }
+    .hero h2 {
+      font-size: 2em;
+      margin: 0;
+    }
+    .hero .cta {
+      margin-top: 20px;
+    }
+    .hero .cta a {
+      background: #ff7e5f;
+      padding: 12px 25px;
+      border-radius: 4px;
+      font-size: 1em;
+      font-weight: bold;
+      color: #fff;
+      transition: background 0.3s;
+    }
+    .hero .cta a:hover {
+      background: #e96a50;
+    }
+    /* Main Content */
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .section {
+      margin-bottom: 40px;
+    }
+    .section h2 {
+      margin-bottom: 20px;
+      color: #007BFF;
+      text-align: center;
+    }
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .service {
+      flex: 1 1 250px;
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 6px;
+      text-align: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .service h3 {
+      margin-top: 0;
+      color: #ff7e5f;
+    }
+    /* Footer */
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 0.9em;
+    }
+    /* Responsive Adjustments */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2em;
+      }
+      nav .nav-container {
+        flex-direction: column;
+      }
+      .hero {
+        height: 250px;
+      }
+      .hero h2 {
+        font-size: 1.5em;
+      }
+      .services {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Gas Agency</h1>
+    <p>Your Trusted Online Gas Cylinder Booking Platform</p>
+  </header>
+  
+  <nav>
+    <div class="nav-container">
+      <a href="{% url 'home' %}">Home</a>
+      <a href="{% url 'service_request_list' %}">Book Cylinder</a>
+      <a href="{% url 'account_detail' %}">My Account</a>
+      <a href="{% url 'support_dashboard' %}">Support</a>
+      <a href="#contact">Contact Us</a>
+      <a href="{% url 'login' %}">Login</a>
+      <a href="{% url 'register' %}">Register</a>
+    </div>
+  </nav>
+  
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Book Your Gas Cylinder Online</h2>
+      <div class="cta">
+        <a href="{% url 'service_request_create' %}">Book Now</a>
+      </div>
+    </div>
+  </section>
+  
+  <div class="container">
+    <section class="section about">
+      <h2>About Us</h2>
+      <p>
+        LalaJi Gas Agency has been serving households across India for over 20 years, ensuring safe and timely gas cylinder delivery right to your doorstep. Our online platform makes booking, tracking, and managing your gas cylinder orders simple and efficient.
+      </p>
+    </section>
+    
+    <section class="section services">
+      <h2>Our Services</h2>
+      <div class="services">
+        <div class="service">
+          <h3>Online Booking</h3>
+          <p>Book your gas cylinder with just a few clicks, anytime, anywhere.</p>
+        </div>
+        <div class="service">
+          <h3>Safe Delivery</h3>
+          <p>Our trained professionals ensure your cylinder is delivered safely and on time.</p>
+        </div>
+        <div class="service">
+          <h3>24/7 Support</h3>
+          <p>Round-the-clock customer support to help with your inquiries and emergencies.</p>
+        </div>
+      </div>
+    </section>
+    
+    <section class="section offers">
+      <h2>Latest Offers</h2>
+      <p>
+        Enjoy exclusive discounts and promotions on bulk bookings and seasonal offers. Stay tuned for more updates!
+      </p>
+    </section>
+    
+    <section id="contact" class="section contact">
+      <h2>Contact Us</h2>
+      <p>
+        For any inquiries or assistance, call us at <strong>1800-123-4567</strong> or email us at <strong>support@LalaJigas.com</strong>.
+      </p>
+    </section>
+  </div>
+  
+  <footer>
+    <p>&copy; 2025 LalaJi Gas Agency. All rights reserved.</p>
+  </footer>
+</body>
+</html>
