@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Support Dashboard</title>
+</head>
+<body>
+    <h1>Support Dashboard</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>User</th>
+            <th>Request Type</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+        {% for req in service_requests %}
+            <tr>
+                <td>{{ req.id }}</td>
+                <td>{{ req.user.username }}</td>
+                <td>{{ req.request_type }}</td>
+                <td>{{ req.status }}</td>
+                <td>
+                    <a href="{% url 'update_request_status' req.pk %}">Update Status</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

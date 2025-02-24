@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Request Status</title>
+</head>
+<body>
+    <h1>Update Status for Request {{ service_request.id }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="status">Status:</label>
+        <select name="status" id="status">
+            {% for key, value in status_choices %}
+                <option value="{{ key }}" {% if key == service_request.status %}selected{% endif %}>{{ value }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Update</button>
+    </form>
+    <a href="{% url 'support_dashboard' %}">Back to Dashboard</a>
+</body>
+</html>

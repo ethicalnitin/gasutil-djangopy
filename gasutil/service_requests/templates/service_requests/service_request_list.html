@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Service Requests</title>
+</head>
+<body>
+    <h1>Your Service Requests</h1>
+    <ul>
+        {% for req in requests %}
+            <li>
+                <a href="{% url 'service_request_detail' req.pk %}">
+                    {{ req.request_type }} - {{ req.status }}
+                </a>
+                (Submitted on: {{ req.created_at }})
+            </li>
+        {% empty %}
+            <li>No requests found.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'service_request_create' %}">Submit a New Request</a>
+</body>
+</html>

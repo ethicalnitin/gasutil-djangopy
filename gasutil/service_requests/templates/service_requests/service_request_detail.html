@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Request Detail</title>
+</head>
+<body>
+    <h1>Request Detail</h1>
+    <p>Type: {{ object.request_type }}</p>
+    <p>Status: {{ object.status }}</p>
+    <p>Details: {{ object.details }}</p>
+    <p>Submitted: {{ object.created_at }}</p>
+    <p>Last Updated: {{ object.updated_at }}</p>
+    {% if object.attachment %}
+        <p>Attachment: <a href="{{ object.attachment.url }}">Download</a></p>
+    {% endif %}
+    <a href="{% url 'service_request_list' %}">Back to Requests</a>
+</body>
+</html>
